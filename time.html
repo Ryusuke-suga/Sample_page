@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Transformation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      margin: 5px;
+      padding: 8px;
+      font-size: 1rem;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Time Transformation</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="time.html">Time Transformation</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Convert Base-60 Time to Decimal</h2>
+      <p>Enter time in <strong>hh:mm:ss</strong> format (e.g., 2:30:45).</p>
+      <input type="text" id="timeInput" placeholder="hh:mm:ss">
+      <button onclick="convertTime()">Convert</button>
+      <p id="result"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sample Page</p>
+  </footer>
+
+  <script>
+    function convertTime() {
+      const input = document.getElementById("timeInput").value.trim();
+      const parts = input.split(":");
+
+      if (parts.length !== 3) {
+        document.getElementById("result").textContent = "Please enter time as hh:mm:ss.";
+        document.getElementById("result").style.color = "red";
+        return;
+      }
+
+      const hours = parseInt(parts[0], 10);
+      const minutes = parseInt(parts[1], 10);
+      const seconds = parseInt(parts[2], 10);
+
+      if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+        document.getElementById("result").textContent = "Invalid input. Please enter numbers only.";
+        document.getElementById("result").style.color = "red";
+        return;
+      }
+
+      // 10進数に変換
+      const decimalTime = hours + (minutes / 60) + (seconds / 3600);
+      document.getElementById("result").textContent = 
+        `Decimal time: ${decimalTime.toFixed(4)} hours`;
+      document.getElementById("result").style.color = "green";
+    }
+  </script>
+</body>
+</html>
