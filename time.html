@@ -36,8 +36,8 @@
   <main>
     <section>
       <h2>Convert Base-60 Time to Decimal</h2>
-      <p>Enter time in <strong>hh:mm:ss</strong> format (e.g., 2:30:45).</p>
-      <input type="text" id="timeInput" placeholder="hh:mm:ss">
+      <p>Enter time in <strong>hh:mm</strong> format (e.g., 2:30).</p>
+      <input type="text" id="timeInput" placeholder="hh:mm">
       <button onclick="convertTime()">Convert</button>
       <p id="result"></p>
     </section>
@@ -52,24 +52,23 @@
       const input = document.getElementById("timeInput").value.trim();
       const parts = input.split(":");
 
-      if (parts.length !== 3) {
-        document.getElementById("result").textContent = "Please enter time as hh:mm:ss.";
+      if (parts.length !== 2) {
+        document.getElementById("result").textContent = "Please enter time as hh:mm.";
         document.getElementById("result").style.color = "red";
         return;
       }
 
       const hours = parseInt(parts[0], 10);
       const minutes = parseInt(parts[1], 10);
-      const seconds = parseInt(parts[2], 10);
 
-      if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+      if (isNaN(hours) || isNaN(minutes)) {
         document.getElementById("result").textContent = "Invalid input. Please enter numbers only.";
         document.getElementById("result").style.color = "red";
         return;
       }
 
       // 10進数に変換
-      const decimalTime = hours + (minutes / 60) + (seconds / 3600);
+      const decimalTime = hours + (minutes / 60);
       document.getElementById("result").textContent = 
         `Decimal time: ${decimalTime.toFixed(4)} hours`;
       document.getElementById("result").style.color = "green";
