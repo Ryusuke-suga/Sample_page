@@ -84,10 +84,10 @@
       const decimalTime = hours + (minutes / 60);
       const pay = decimalTime * rate;
 
-      document.getElementById("result").textContent =
-        `Decimal time: ${decimalTime.toFixed(4)} hours\n` +
-        `Hourly rate: ${rate.toLocaleString()} \n` +
-        `Total pay: ${pay.toLocaleString()} `;
+      document.getElementById("result").innerHTML =
+      `Decimal time: ${decimalTime.toFixed(4)} hours<br>` +
+      `Hourly rate: ${rate.toLocaleString()}<br>` +
+      `Total pay: ${pay.toLocaleString()}`;
       document.getElementById("result").style.color = "green";
     }
   </script>
