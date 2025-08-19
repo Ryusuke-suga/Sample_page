@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サンプルページ</title>
-  <!-- 外部CSSを読み込む -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,12 +20,23 @@
     <section>
       <h2>紹介</h2>
       <p>これはHTMLとCSSを組み合わせたサンプルページです。</p>
-      <button>クリックしてね</button>
+      <button id="thanksBtn">クリックしてね</button>
+      <!-- メッセージを表示する場所 -->
+      <p id="message" style="display:none; color: green; font-weight: bold;"></p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 サンプルページ</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("thanksBtn").addEventListener("click", function() {
+      const msg = document.getElementById("message");
+      msg.textContent = "ありがとうございます！クリックしてくれて嬉しいです😊";
+      msg.style.display = "block";
+    });
+  </script>
 </body>
 </html>
