@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サンプルページ</title>
+  <title>Sample Page</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>サンプルページへようこそ</h1>
+    <h1>Welcome to Sample Page</h1>
     <nav>
-      <a href="#">ホーム</a>
+      <a href="#">Home</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
     </nav>
@@ -18,23 +18,23 @@
 
   <main>
     <section>
-      <h2>紹介</h2>
-      <p>これはHTMLとCSSを組み合わせたサンプルページです。</p>
-      <button id="thanksBtn">クリックしてね</button>
+      <h2>Introduction</h2>
+      <p>This is a sample page that combines HTML and CSS.</p>
+      <button id="thanksBtn">Click here!!!</button>
       <!-- メッセージを表示する場所 -->
       <p id="message" style="display:none; color: green; font-weight: bold;"></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 サンプルページ</p>
+    <p>&copy; 2025 Sample Page</p>
   </footer>
 
   <!-- JavaScript -->
   <script>
     document.getElementById("thanksBtn").addEventListener("click", function() {
       const msg = document.getElementById("message");
-      msg.textContent = "ありがとうございます！クリックしてくれて嬉しいです😊";
+      msg.textContent = "Thank you! I'm glad you clicked on it😊";
       msg.style.display = "block";
     });
   </script>
