@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sample Page</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth; /* Smooth scroll */
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to Sample Page</h1>
+    <h1>Welcome to the Sample Page</h1>
     <nav>
       <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
     <section>
       <h2>Introduction</h2>
-      <p>This is a sample page that combines HTML and CSS.</p>
-      <button id="thanksBtn">Click here!!!</button>
-      <!-- メッセージを表示する場所 -->
+      <p>This is a sample page combining HTML and CSS.</p>
+      <button id="thanksBtn">Click me</button>
       <p id="message" style="display:none; color: green; font-weight: bold;"></p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        This page is a simple sample created using HTML, CSS, and JavaScript.<br>
+        You can also upload it to GitHub and use it for practice.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Contact information will be written here.</p>
     </section>
   </main>
 
@@ -30,11 +49,10 @@
     <p>&copy; 2025 Sample Page</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     document.getElementById("thanksBtn").addEventListener("click", function() {
       const msg = document.getElementById("message");
-      msg.textContent = "Thank you! I'm glad you clicked on it😊";
+      msg.textContent = "Thank you! I’m glad you clicked 😊";
       msg.style.display = "block";
     });
   </script>
