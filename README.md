@@ -1,2 +1,2 @@
-# Sample_page
+# My_page
 This is test page for my understanding
