@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sample Page</title>
-  <link rel="stylesheet" href="style.css">
+  <script>
+    // header.html を読み込んで head に追加
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.head.insertAdjacentHTML("beforeend", data));
+  </script>
 </head>
 <body>
   <header>
