@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sample Page</title>
+  <title>My Page</title>
   <script>
     // header.html を読み込んで head に追加
     fetch("header.html")
@@ -11,33 +11,38 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to the Sample Page</h1>
+    <h1>Welcome to the My Page</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="time.html">Time Transformation & Calculate Pay</a>
+      <a href="time.html">Hourly Payment</a>
     </nav>
   </header>
 
   <main>
     <section>
       <h2>Introduction</h2>
-      <p>This is a sample page combining HTML and CSS.</p>
+      <p>Click to draw a fortune😝</p>
       <button id="thanksBtn">Click me</button>
       <p id="message" style="display:none; color: green; font-weight: bold;"></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Sample Page</p>
+    <p>&copy; 2025 My Page</p>
   </footer>
 
   <script>
     document.getElementById("thanksBtn").addEventListener("click", function() {
-      const msg = document.getElementById("message");
-      msg.textContent = "Thank you! I’m glad you clicked 😊";
-      msg.style.display = "block";
+    const msg = document.getElementById("message");
+    
+    const fortunes = ["Great Luck", "Good Luck", "Moderate Luck", "Bad Luck", "Very Bad Luck"];
+    const randomIndex = Math.floor(Math.random() * fortunes.length);
+    const result = fortunes[randomIndex];
+    
+    msg.textContent = `Your fortune today is: ${result}`;
+    msg.style.display = "block";
     });
   </script>
 </body>
