@@ -58,41 +58,48 @@
 
   <script>
     function convertTime() {
-      const input = document.getElementById("timeInput").value.trim();
-      const rate = parseFloat(document.getElementById("rateInput").value);
-      const parts = input.split(":");
+    const input = document.getElementById("timeInput").value.trim();
+    const rate = parseFloat(document.getElementById("rateInput").value);
+    const parts = input.split(":");
 
-      if (parts.length !== 2) {
-        document.getElementById("result").textContent = "Please enter time as hh:mm.";
-        document.getElementById("result").style.color = "red";
-        return;
-      }
+    if (parts.length !== 2) {
+      document.getElementById("result").textContent = "Please enter time as hh:mm.";
+      document.getElementById("result").style.color = "red";
+      return;
+    }
 
-      const hours = parseInt(parts[0], 10);
-      const minutes = parseInt(parts[1], 10);
+    const hours = parseInt(parts[0], 10);
+    const minutes = parseInt(parts[1], 10);
 
-      if (isNaN(hours) || isNaN(minutes)) {
-        document.getElementById("result").textContent = "Invalid time input. Please enter numbers only.";
-        document.getElementById("result").style.color = "red";
-        return;
-      }
+    if (isNaN(hours) || isNaN(minutes)) {
+      document.getElementById("result").textContent = "Invalid time input. Please enter numbers only.";
+      document.getElementById("result").style.color = "red";
+      return;
+    }
 
-      if (isNaN(rate) || rate <= 0) {
-        document.getElementById("result").textContent = "Please enter a valid hourly rate.";
-        document.getElementById("result").style.color = "red";
-        return;
-      }
+    if (isNaN(rate) || rate <= 0) {
+      document.getElementById("result").textContent = "Please enter a valid hourly rate.";
+      document.getElementById("result").style.color = "red";
+      return;
+    }
 
-      // 10進数に変換
-      const decimalTime = hours + (minutes / 60);
-      const pay = decimalTime * rate;
+    // 10進数に変換
+    const decimalTime = hours + (minutes / 60);
+    const pay = decimalTime * rate;
 
-      document.getElementById("result").innerHTML =
+    let message =
       `Decimal time: ${decimalTime.toFixed(4)} hours<br>` +
       `Hourly rate: ${rate.toLocaleString()}<br>` +
       `Total pay: ${pay.toLocaleString()}`;
-      document.getElementById("result").style.color = "green";
+
+    // 88,000 以上ならメッセージを追加
+    if (pay >= 88000) {
+      message += `<br><span style="color:red; font-weight:bold;">⚠ Over 88,000 yen!</span>`;
     }
-  </script>
+
+    document.getElementById("result").innerHTML = message;
+    document.getElementById("result").style.color = "green";
+  }
+</script>
 </body>
 </html>
